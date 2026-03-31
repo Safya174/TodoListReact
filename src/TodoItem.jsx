@@ -6,7 +6,7 @@ import React, { useState, useContext } from "react";
 import { TaskContext } from './Context/TaskContext'
 import FormDialog from './prop'
 import EditDialog from './EditDialog';
-import 'App.css'
+import './App.css'
 export default function TodoItem({ Task }) {
   const [open, setOpen] = useState(false);
   const [openEdit, setOpenEdit] = useState(false);
