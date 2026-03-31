@@ -6,78 +6,98 @@ import React, { useState, useContext } from "react";
 import { TaskContext } from './Context/TaskContext'
 import FormDialog from './prop'
 import EditDialog from './EditDialog';
-export default function TodoItem({Task}) {
- const [open, setOpen] = useState(false);
- const [openEdit, setOpenEdit] = useState(false);
- let {tasks,addTask,deleteTask,completeTask,Update} = useContext(TaskContext);
- const handleOpen = () => setOpen(true);
- const handleClose = () => setOpen(false);
- const handleOpenEdit = () => setOpenEdit(true);
- const handlecolseEdit = () => setOpenEdit(false);
+import 'App.css'
+export default function TodoItem({ Task }) {
+  const [open, setOpen] = useState(false);
+  const [openEdit, setOpenEdit] = useState(false);
+  let { deleteTask, completeTask, Update } = useContext(TaskContext);
+
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+  const handleOpenEdit = () => setOpenEdit(true);
+  const handlecolseEdit = () => setOpenEdit(false);
 
   return (
     <div
+      className="task-card" 
       style={{
-        backgroundColor: "#E8DBB3",
-        padding: "40px",
+        backgroundColor: "#E6D5B8", 
+        padding: "20px", 
         color: "black",
         marginTop: "15px",
         display: "flex",
+        flexWrap: "wrap", 
         justifyContent: "space-between",
         alignItems: "center",
-        borderRadius: "10px"
+        borderRadius: "12px",
+        gap: "15px" 
       }}
     >
-      <div>
-        <h2 style={{ marginBottom:"10px", fontWeight: "bold" }}>{Task.title}</h2>
-        <p style={{ margin: 0 }}>{Task.details}</p>
+  
+      <div style={{ flex: "1 1 200px", textAlign: "left" }}>
+        <h2 style={{ 
+            marginBottom: "5px", 
+            fontWeight: "bold", 
+            fontSize: "1.2rem",
+            textDecoration: Task.isCompleted ? "line-through" : "none",
+            opacity: Task.isCompleted ? 0.5 : 1
+          }}>
+          {Task.title}
+        </h2>
+        <p style={{ margin: 0, fontSize: "0.9rem", opacity: 0.8 }}>{Task.details}</p>
       </div>
 
-      <div>
-        <IconButton onClick={()=>{
-          handleOpen()
-        }}
+    
+      <div style={{ 
+          display: "flex", 
+          gap: "8px", 
+          justifyContent: "flex-end",
+          flexShrink: 0 
+        }}>
+        
+      
+        <IconButton onClick={handleOpen}
           style={{
             backgroundColor: "white",
             color: "#B91C1C",
-            border: "solid #B91C1C 2px",
-            marginRight: "10px"
+            border: "solid #B91C1C 1px", 
+            padding: "8px" 
           }}
         >
-          <DeleteIcon />
+          <DeleteIcon fontSize="small" />
         </IconButton>
 
-        <IconButton onClick={()=>{
-          handleOpenEdit()
-        }}
+     
+        <IconButton onClick={handleOpenEdit}
           style={{
             backgroundColor: "white",
             color: "#927A5D",
-            border: "solid #927A5D 2px",
-            marginRight: "10px"
+            border: "solid #927A5D 1px",
+            padding: "8px"
           }}
         >
-          <EditIcon />
+          <EditIcon fontSize="small" />
         </IconButton>
 
-        <IconButton onClick={()=>{completeTask(Task.id)
-          
-        }}
+   
+        <IconButton onClick={() => completeTask(Task.id)}
           style={{
-            backgroundColor: Task.isCompleted == true ? "#6B8E23":"white" ,
-            color: Task.isCompleted == true ? "white":"#6B8E23" ,
-            border: "solid #6B8E23 2px"
+            backgroundColor: Task.isCompleted ? "#4D7C0F" : "white",
+            color: Task.isCompleted ? "white" : "#4D7C0F",
+            border: "solid #4D7C0F 1px",
+            padding: "8px"
           }}
         >
-          <CheckIcon />
+          <CheckIcon fontSize="small" />
         </IconButton>
       </div>
-       <FormDialog
+
+      <FormDialog
         open={open}
         handleClose={handleClose}
-        handleDelete={()=>{deleteTask(Task.id)}}
+        handleDelete={() => { deleteTask(Task.id) }}
       />
-      <EditDialog open={openEdit} handleClose={handlecolseEdit} handleEdit={Update} Task={Task}/>
+      <EditDialog open={openEdit} handleClose={handlecolseEdit} handleEdit={Update} Task={Task} />
     </div>
   );
 }
