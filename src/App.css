@@ -17,16 +17,18 @@ html,body{
   .task-actions {
     width: 100%;
     justify-content: flex-end;
+    margin-top: 10px;
   }
   .headFont{
-    font-size: 20px;
+    font-size: 17px;
   }
   .widthButton{
     width:100% ;
-    
+    margin: 0 !important;
   }
   .widthInput{
     width:100% !important ;
     margin-bottom: 15px;
+
   }
 }
