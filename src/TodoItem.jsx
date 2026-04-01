@@ -34,7 +34,7 @@ export default function TodoItem({Task}) {
         <p style={{ margin: 0 }}>{Task.details}</p>
       </div>
 
-      <div>
+      <div className="task-action" > 
         <IconButton onClick={()=>{
           handleOpen()
         }}
