@@ -34,7 +34,7 @@ let Taskt = filterTasks.map((Task) => (
             {Taskt}
             <div style={{marginTop:"20px"}}> 
 
-    <input type="text"  value={inputValue}   placeholder='Task Title' style={{padding:"15px",width:"75%",border:"#D1D5DB solid 1px"}} className='widthInput' onChange={(e)=>{
+    <input type="text"  value={inputValue}   placeholder='Task Title' style={{padding:"15px",width:"75%",border:"#D1D5DB solid 1px",borderRadius:'15px'}} className='widthInput' onChange={(e)=>{
       setInputValue(e.target.value)
     }} />
                        <button
