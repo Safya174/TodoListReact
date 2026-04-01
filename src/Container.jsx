@@ -41,10 +41,11 @@ let Taskt = filterTasks.map((Task) => (
              isCompleted: false
   })}
   style={{color:"white",padding:"15px",backgroundColor:"#C92C20",border:"none",borderRadius:"10px"}}
+  className='widthButton'
 >
   Add Task
 </button>
-    <input type="text"  value={inputValue}   placeholder='Task Title' style={{padding:"15px",width:"75%",marginLeft:"20px",border:"#D1D5DB solid 1px"}} onChange={(e)=>{
+    <input type="text"  value={inputValue}   placeholder='Task Title' style={{padding:"15px",width:"75%",marginLeft:"20px",border:"#D1D5DB solid 1px"}} className='widthInput' onChange={(e)=>{
       setInputValue(e.target.value)
     }} />
 
