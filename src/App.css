@@ -1,12 +1,14 @@
 
+
 @media (max-width: 600px) {
   .task-card {
-    padding: 15px !important;
-    flex-direction: column !important; 
-    text-align: center;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 5px;
   }
-  
-  .task-card h2 {
-    font-size: 1rem !important; 
+
+  .task-actions {
+    width: 100%;
+    justify-content: flex-end;
   }
 }
