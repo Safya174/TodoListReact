@@ -33,21 +33,22 @@ let Taskt = filterTasks.map((Task) => (
         
             {Taskt}
             <div style={{marginTop:"20px"}}> 
-                   <button
+
+    <input type="text"  value={inputValue}   placeholder='Task Title' style={{padding:"15px",width:"75%",border:"#D1D5DB solid 1px"}} className='widthInput' onChange={(e)=>{
+      setInputValue(e.target.value)
+    }} />
+                       <button
            onClick={() => addTask({
              id: Date.now(),
              title: inputValue,
              details: "Added from button",
              isCompleted: false
   })}
-  style={{color:"white",padding:"15px",backgroundColor:"#C92C20",border:"none",borderRadius:"10px"}}
+  style={{color:"white",padding:"15px",backgroundColor:"#C92C20",border:"none",borderRadius:"10px",marginLeft:"20px"}}
   className='widthButton'
 >
   Add Task
 </button>
-    <input type="text"  value={inputValue}   placeholder='Task Title' style={{padding:"15px",width:"75%",marginLeft:"20px",border:"#D1D5DB solid 1px"}} className='widthInput' onChange={(e)=>{
-      setInputValue(e.target.value)
-    }} />
 
             </div>
             
